@@ -6,8 +6,8 @@ export const register = async (req, res) => {
   try {
     const { username, email, password } = req.body
 
-    const checkUsername = await UserModel.find({ username: username })
-    const checkEmail = await UserModel.find({ email: email })
+    const checkUsername = await UserModel.findOne({ username: username })
+    const checkEmail = await UserModel.findOne({ email: email })
 
     if (checkUsername)
       return res
